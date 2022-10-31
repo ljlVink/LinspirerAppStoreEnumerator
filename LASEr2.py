@@ -28,7 +28,7 @@ def getinfo(id):
     for item in datab:
         print(f"packagename:",item.get('packagename'))
         print(f"target api:",item.get('target_sdk_version'))
-        print(f"name:",item.get('name'))
+       # print(f"name:",item.get('name'))
         print(f"versionname:",item.get('versionname'))
         print(f"versioncode:",item.get('versioncode'))
         print(f"md5sum:",item.get('md5sum'))
