@@ -42,7 +42,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: 开跑
-        run: python ./LASEr.py ${{ github.event.inputs.Start }} ${{ github.event.inputs.End }} ${{ github.event.inputs.Threads }} ${{ github.event.inputs.Swdid }} ${{ github.event.inputs.Account }}
+        run: python ./LASEr2.py ${{ github.event.inputs.Start }} ${{ github.event.inputs.End }} ${{ github.event.inputs.Threads }} ${{ github.event.inputs.Swdid }} ${{ github.event.inputs.Account }}
 
       - name: 移动result.csv
         run: |
