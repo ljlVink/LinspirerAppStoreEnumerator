@@ -1,0 +1,56 @@
+name: 快速爬虫
+
+on:
+  workflow_dispatch:
+    inputs:
+      Start:
+        description: '起始id'
+        required: true
+        default: '10000'
+      End:
+        description: '截止id'
+        required: true
+        default: '10050'
+      Threads:
+        description: '线程数'
+        required: true
+        default: '4'
+      Swdid:
+        description: '设备swdid'
+        required: true
+        default: ''
+      Account:
+        description: '管控账号'
+        required: true
+        default: ''
+
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 安装Python3环境
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: 安装requirements.txt
+        run: pip install -r requirements.txt
+
+      - name: 开跑
+        run: python ./LASEr.py ${{ github.event.inputs.Start }} ${{ github.event.inputs.End }} ${{ github.event.inputs.Threads }} ${{ github.event.inputs.Swdid }} ${{ github.event.inputs.Account }}
+
+      - name: 移动result.csv
+        run: |
+          md result
+          move ./result.csv ./result/result.csv
+
+      - name: 上传Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: result
+          path: result/

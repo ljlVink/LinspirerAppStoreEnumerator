@@ -13,6 +13,18 @@
 
 `是人就会`
 
+**LASEr2.py** 倾向于爬取快速爬管控包而打造 
+
+```
+python LASEr2.py 起始id 终止id 线程数(可以开到50) 设备swdid(sn/mac) 管控账号
+```
+
+e.g
+
+```
+python LASEr2.py 1 100000 50 aa:bb:cc:dd:dd:ff abc@abc.abc
+```
+
 ### 其他
 
 本脚本在下载apk后会**自动删除之**
@@ -25,10 +37,11 @@ os.system("rm ./packages/"+str(id)+".apk")
 
 ### Contributor
 **ljlVink**
-> 新增系统判断
-> 
-> NULL不输出到文件中
-> 
-> 控制台输出优化
-> 
-> 异常判断并抛出 
+
+LASEr2
+
+>比原版快1000倍
+
+>action也能跑
+
+>跑完可以停止
